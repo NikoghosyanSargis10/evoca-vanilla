@@ -49,7 +49,7 @@ document.querySelector('#app').innerHTML = `
 
     <div class="down-header">
       <img class="logo-for-evoca" src="https://newmag.am/public/front/assets//images/pages/fest_summer/evoca.png" alt="Evocabank Logo">
-      <a href="#">Վարկեր</a>  
+      <a href="./varker.html">Վարկեր</a>  
       <a href="#">Քարտեր</a>  
       <a href="#">Ավանդներ</a>
       <a href="#">Հաշիվներ</a>

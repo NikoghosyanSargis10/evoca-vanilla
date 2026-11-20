@@ -1,0 +1,278 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #ffffff;
+  color: #1f1f1f;
+  overflow-x: hidden;
+}
+
+.main {
+  width: 100%;
+}
+
+.top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 60px;
+  height: 50px;
+  border-bottom: 1px solid #ececec;
+  font-size: 13px;
+  font-weight: 600;
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.left-menu {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  height: 100%;
+}
+
+.active-tab {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #6400dc;
+}
+
+.textOther {
+  color: #6400dc;
+}
+
+.texterMejiDiv {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.text {
+  color: #555555;
+  cursor: pointer;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+
+.text:hover {
+  color: #6400dc;
+}
+
+.right-menu {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.header-select {
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  color: #6400dc;
+  cursor: pointer;
+  outline: none;
+  padding: 4px 8px;
+  font-family: inherit;
+  font-weight: bold;
+}
+
+.header-select option {
+  color: #222222;
+  background: #fff;
+  font-weight: normal;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+}
+
+.icon2 {
+  width: 15px;
+  height: 15px;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.icon3 {
+  width: 40px;
+  height: 50px;
+  object-fit: contain;
+  cursor: pointer;
+  margin-left: 50px;
+  transition: margin 0.3s ease;
+}
+
+.down-header {
+  position: fixed;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  z-index: 9999;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+  
+  animation: stickyHeader linear both;
+  animation-timeline: scroll(root);
+  animation-range: 0px 50px;
+}
+
+.logo-for-evoca {
+  width: 160px;
+  display: block;
+}
+
+.down-header a {
+  text-decoration: none;
+  color: #222222;
+  font-weight: 600;
+  font-size: 15px;
+  white-space: nowrap;
+  transition: color 0.2s, font-size 0.3s ease;
+}
+
+.down-header a:hover {
+  color: #6400dc;
+}
+
+.online-bank-btn {
+  background-color: #6400dc;
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 20px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s, padding 0.3s ease;
+  margin-left: 30px;
+}
+
+.online-bank-btn:hover {
+  background-color: #1a0374;
+}
+
+.down-header a.varker {
+  color: #6400dc;
+  font-weight: 700;
+}
+
+.sub-header {
+  margin-top: 70px;
+  width: 100%;
+  height: 55px;
+  background-color: #6400dc;
+  display: flex;
+  align-items: center;
+  padding-left: 110px;
+}
+
+.sub-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  transition: background-color 0.2s ease;
+}
+
+.sub-link:hover,.sub-link.active {
+  background-color: #46009c;
+  font-weight: 600;
+}
+
+@media (max-width: 1400px) {
+  .top-header, .down-header {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .texterMejiDiv {
+    gap: 16px;
+  }
+  .sub-header {
+    padding-left: 30px;
+  }
+}
+
+@media (max-width: 1260px) {
+  .texterMejiDiv {
+    display: none;
+  }
+  .down-header {
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 1140px) {
+  .down-header a {
+    display: none;
+  }
+  .logo-for-evoca {
+    width: 140px;
+  }
+  .icon3 {
+    margin-left: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .top-header {
+    height: auto;
+    padding: 10px 15px;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .left-menu, .right-menu {
+    width: 100%;
+    justify-content: center;
+  }
+  .down-header {
+    padding: 10px 15px;
+    top: 85px;
+  }
+  .sub-header {
+    padding-left: 15px;
+    overflow-x: auto;
+  }
+  .sub-link {
+    padding: 0 14px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+  .online-bank-btn {
+    padding: 8px 16px;
+    font-size: 13px;
+    margin-left: 10px;
+  }
+}
