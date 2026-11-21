@@ -1,7 +1,9 @@
-import './qarter.css'
+import './varker.css'
 
-document.querySelector('#app').innerHTML = `
-  <div class="main">
+
+export function showVarker() {
+  document.querySelector('#app').innerHTML = `
+    <div class="main">
     <header class="top-header">
       <div class="left-menu">
         <div class="active-tab">
@@ -48,11 +50,10 @@ document.querySelector('#app').innerHTML = `
     </header>
 
     <div class="down-header">
-      <a href="/index.html">
-        <img class="logo-for-evoca" src="https://newmag.am/public/front/assets//images/pages/fest_summer/evoca.png" alt="Evocabank Logo">
-      </a>
-      <a href="/varker.html">Վարկեր</a>  
-      <a class="varker" href="#">Քարտեր</a>  
+        <img onclick="openHome()" class="logo-for-evoca" src="https://newmag.am/public/front/assets//images/pages/fest_summer/evoca.png" alt="Evocabank Logo">
+<a onclick="openVarker()" href="javascript:void(0)">Վարկեր</a>
+  <a onclick="openQarter()" href="javascript:void(0)">Քարտեր</a>
+
       <a href="#">Ավանդներ</a>
       <a href="#">Հաշիվներ</a>
       <a href="#">Փոխանցումներ</a>
@@ -67,7 +68,6 @@ document.querySelector('#app').innerHTML = `
       <a href="#" class="sub-link active">Վարկեր</a>
       <a href="#" class="sub-link">Վարկային պատմություն և սքոր</a>
       <a href="#" class="sub-link">Կարևոր տեղեկատվություն</a>
-      <a href="#" class="sub-link">Evoca Benefits</a>
     </div>
 
     <div class="breadcrumb-container">
@@ -77,35 +77,37 @@ document.querySelector('#app').innerHTML = `
       <span class="breadcrumb-sep">></span>
       <a class="breadcrumb-item">Անհատ</a>
       <span class="breadcrumb-sep">></span>
-      <a class="breadcrumb-item">Քարտեր</a>
+      <a class="breadcrumb-item">Վարկեր</a>
       <span class="breadcrumb-sep">></span>
-      <span class="breadcrumb-item">Քարտեր</span>
+      <span class="breadcrumb-item">Վարկեր</span>
     </div>
   </div>
-    <section class="varker-header-section">
-      <h1 class="varker-page-title">Քարտեր</h1>
+      <section class="varker-header-section">
+      <h1 class="varker-page-title">Վարկեր</h1>
       
       <div class="varker-filters">
         <button class="filter-btn active">Բոլորը</button>
-        <button class="filter-btn">Պրեմիում</button>
-        <button class="filter-btn">Նվեր քարտեր</button>
-        <button class="filter-btn">Թվային քարտեր</button>
-        <button class="filter-btn"><img src="https://www.evoca.am/images-cache/menu/1/17485004055849/50x24.png" alt="ArCa" style="height: 16px; display: block;"></button>
-       <button class="filter-btn"><img src="https://www.evoca.am/images-cache/menu/1/16137249251612/50x24.png" alt="Visa" style="height: 16px; display: block;"></button>
-        <button class="filter-btn"><img src="https://www.evoca.am/images-cache/menu/1/16137249504065/50x24.png" alt="MasterCard" style="height: 16px; display: block;"></button>
-        <button class="filter-btn"><img src="https://www.evoca.am/images-cache/menu/1/17288945044615/50x24.png" alt="MasterCard" style="height: 16px; display: block;"></button>
-        </div>
+        <button class="filter-btn">Գրավով ապահովված սպառողական վարկեր</button>
+        <button class="filter-btn">Անգրավ սպառողական վարկեր</button>
+        <button class="filter-btn">Հիփոթեքային վարկեր</button>
+        <button class="filter-btn">Ավտոմեքենաների ձեռքբերման ֆինանսավորում</button>
+        <button class="filter-btn">Ապառիկ</button>
+        <button class="filter-btn">Օնլայն վարկեր</button>
+      </div>
+
+
+
     </section>
 
     
         <section class="loans-list-section">
       <div class="loan-card">
         <div class="loan-card-visual yellow-bg">
-          <img src="https://www.evoca.am/images-cache/cards/1/17404717644263/415x261.png" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
+          <img src="https://www.evoca.am/images-cache/loans/1/16142452390605/415x261.jpg" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
         </div>
 
         <div class="loan-card-content">
-          <h2 class="loan-card-title">Arca Classic</h2>
+          <h2 class="loan-card-title">Անգրավ սպառողական վարկ</h2>
           <p class="loan-card-desc">
             Նոր նպատակներ, անսպասելի ծախսեր կամ վաղուց պլանավորված գնումներ. Evocabank-ի անգրավ սպառողական վարկը կօգնի կյանքի կոչել Ձեր ծրագրերը՝ առանց գույքի գրավադրման։
           </p>
@@ -139,11 +141,11 @@ document.querySelector('#app').innerHTML = `
     <section class="loans-list-section">
       <div class="loan-card">
         <div class="loan-card-visual yellow-bg">
-          <img src="https://www.evoca.am/images-cache/cards/1/17881574661708/415x261.png" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
+          <img src="https://www.evoca.am/images-cache/loans/1/16142451996694/415x261.jpg" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
         </div>
 
         <div class="loan-card-content">
-          <h2 class="loan-card-title">Arca-UnionPay</h2>
+          <h2 class="loan-card-title">Ավտոմեքենայի ձեռքբերման նպատակով վարկ</h2>
           <p class="loan-card-desc">
             Նոր ավտոմեքենա գնելու որոշու՞մ եք կայացրել, արդեն ընտրե՞լ եք մակնիշը, մոդելը և գույնը: Evocabank-ը կօգնի ավարտին հասցնել Ձեր որոշումը։
           </p>
@@ -177,11 +179,11 @@ document.querySelector('#app').innerHTML = `
     <section class="loans-list-section">
       <div class="loan-card">
         <div class="loan-card-visual yellow-bg">
-          <img src="https://www.evoca.am/images-cache/cards/1/17149866652788/415x261.png" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
+          <img src="https://www.evoca.am/images-cache/loans/1/16142566831396/415x261.jpg" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
         </div>
 
         <div class="loan-card-content">
-          <h2 class="loan-card-title">Mastercard Standard</h2>
+          <h2 class="loan-card-title">Գույքի գրավով ապահովված վարկ</h2>
           <p class="loan-card-desc">
             Ստացիր քեզ անհրաժեշտ ֆինանսավորումը՝ գրավադրելով անշարժ գույք կամ տրանսպորտային միջոց։
           </p>
@@ -216,11 +218,11 @@ document.querySelector('#app').innerHTML = `
     <section class="loans-list-section">
       <div class="loan-card">
         <div class="loan-card-visual yellow-bg">
-          <img src="https://www.evoca.am/images-cache/cards/1/1714986642953/415x261.png" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
+          <img src="https://www.evoca.am/images-cache/loans/1/17552479364123/415x261.png" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
         </div>
 
         <div class="loan-card-content">
-          <h2 class="loan-card-title">Visa Classic</h2>
+          <h2 class="loan-card-title">Արևային կայանների ձեռք բերման վարկ EvocaPOWER</h2>
           <p class="loan-card-desc">
             Նոր նպատակներ, անսպասելի ծախսեր կամ վաղուց պլանավորված գնումներ. Evocabank-ի անգրավ սպառողական վարկը կօգնի կյանքի կոչել Ձեր ծրագրերը՝ առանց գույքի գրավադրման։
           </p>
@@ -254,11 +256,11 @@ document.querySelector('#app').innerHTML = `
     <section class="loans-list-section">
       <div class="loan-card">
         <div class="loan-card-visual yellow-bg">
-          <img src="https://www.evoca.am/images-cache/cards/1/17485025148319/415x261.png" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
+          <img src="https://www.evoca.am/images-cache/loans/1/16142452902587/415x261.jpg" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
         </div>
 
         <div class="loan-card-content">
-          <h2 class="loan-card-title">Visa Digital</h2>
+          <h2 class="loan-card-title">Ոսկու գրավով (լոմբարդային) վարկ</h2>
           <p class="loan-card-desc">
             Նոր ավտոմեքենա գնելու որոշու՞մ եք կայացրել, արդեն ընտրե՞լ եք մակնիշը, մոդելը և գույնը: Evocabank-ը կօգնի ավարտին հասցնել Ձեր որոշումը։
           </p>
@@ -292,11 +294,11 @@ document.querySelector('#app').innerHTML = `
     <section class="loans-list-section">
       <div class="loan-card">
         <div class="loan-card-visual yellow-bg">
-          <img src="https://www.evoca.am/images-cache/cards/1/17639683196125/415x261.png" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
+          <img src="https://www.evoca.am/images-cache/loans/1/16131174467985/415x261.jpg" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
         </div>
 
         <div class="loan-card-content">
-          <h2 class="loan-card-title">Mastercard World Digital</h2>
+          <h2 class="loan-card-title">Տեղում Ապառիկ</h2>
           <p class="loan-card-desc">
             Ստացիր քեզ անհրաժեշտ ֆինանսավորումը՝ գրավադրելով անշարժ գույք կամ տրանսպորտային միջոց։
           </p>
@@ -330,11 +332,11 @@ document.querySelector('#app').innerHTML = `
     <section class="loans-list-section">
       <div class="loan-card">
         <div class="loan-card-visual yellow-bg">
-          <img src="https://www.evoca.am/images-cache/cards/1/17282986912132/415x261.png" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
+          <img src="https://www.evoca.am/images-cache/loans/1/16142653302177/415x261.jpg" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
         </div>
 
         <div class="loan-card-content">
-          <h2 class="loan-card-title">Digital Gift Card</h2>
+          <h2 class="loan-card-title">Evoca աշխատավարձային փաթեթի շրջականակում տրամադրվող վարկ</h2>
           <p class="loan-card-desc">
             Նոր նպատակներ, անսպասելի ծախսեր կամ վաղուց պլանավորված գնումներ. Evocabank-ի անգրավ սպառողական վարկը կօգնի կյանքի կոչել Ձեր ծրագրերը՝ առանց գույքի գրավադրման։
           </p>
@@ -368,11 +370,11 @@ document.querySelector('#app').innerHTML = `
     <section class="loans-list-section">
       <div class="loan-card">
         <div class="loan-card-visual yellow-bg">
-          <img src="https://www.evoca.am/images-cache/cards/1/17149865321136/415x261.png" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
+          <img src="https://www.evoca.am/images-cache/loans/1/1614244906092/415x261.jpg" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
         </div>
 
         <div class="loan-card-content">
-          <h2 class="loan-card-title">Mastercard Gold</h2>
+          <h2 class="loan-card-title">Բնակարանային հիփոթեքային վարկեր Բանկի ռեսուրսով</h2>
           <p class="loan-card-desc">
             Նոր ավտոմեքենա գնելու որոշու՞մ եք կայացրել, արդեն ընտրե՞լ եք մակնիշը, մոդելը և գույնը: Evocabank-ը կօգնի ավարտին հասցնել Ձեր որոշումը։
           </p>
@@ -406,11 +408,11 @@ document.querySelector('#app').innerHTML = `
     <section class="loans-list-section">
       <div class="loan-card">
         <div class="loan-card-visual yellow-bg">
-          <img src="https://www.evoca.am/images-cache/cards/1/1714986482757/415x261.png" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
+          <img src="https://www.evoca.am/images-cache/loans/1/16994456305602/415x261.png" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
         </div>
 
         <div class="loan-card-content">
-          <h2 class="loan-card-title">Visa Vision</h2>
+          <h2 class="loan-card-title">Action</h2>
           <p class="loan-card-desc">
             Ստացիր քեզ անհրաժեշտ ֆինանսավորումը՝ գրավադրելով անշարժ գույք կամ տրանսպորտային միջոց։
           </p>
@@ -442,11 +444,11 @@ document.querySelector('#app').innerHTML = `
     <section class="loans-list-section">
       <div class="loan-card">
         <div class="loan-card-visual yellow-bg">
-          <img src="https://www.evoca.am/images-cache/cards/1/17149865646885/415x261.png" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
+          <img src="https://www.evoca.am/images-cache/loans/1/17364209867562/415x261.png" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
         </div>
 
         <div class="loan-card-content">
-          <h2 class="loan-card-title">Visa Gold</h2>
+          <h2 class="loan-card-title">Հիփոթեքային վարկ ԼՂ-ից բռնի տեղահանված ընտանիքներին</h2>
           <p class="loan-card-desc">
             Նոր նպատակներ, անսպասելի ծախսեր կամ վաղուց պլանավորված գնումներ. Evocabank-ի անգրավ սպառողական վարկը կօգնի կյանքի կոչել Ձեր ծրագրերը՝ առանց գույքի գրավադրման։
           </p>
@@ -480,11 +482,11 @@ document.querySelector('#app').innerHTML = `
     <section class="loans-list-section">
       <div class="loan-card">
         <div class="loan-card-visual yellow-bg">
-          <img src="https://www.evoca.am/images-cache/cards/1/17262129422977/415x261.png" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
+          <img src="https://www.evoca.am/images-cache/loans/1/17421922764367/415x261.jpg" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
         </div>
 
         <div class="loan-card-content">
-          <h2 class="loan-card-title">UnionPay Gold</h2>
+          <h2 class="loan-card-title">Հողամասի ձեռքբերման վարկ</h2>
           <p class="loan-card-desc">
             Նոր ավտոմեքենա գնելու որոշու՞մ եք կայացրել, արդեն ընտրե՞լ եք մակնիշը, մոդելը և գույնը: Evocabank-ը կօգնի ավարտին հասցնել Ձեր որոշումը։
           </p>
@@ -518,11 +520,11 @@ document.querySelector('#app').innerHTML = `
     <section class="loans-list-section">
       <div class="loan-card">
         <div class="loan-card-visual yellow-bg">
-          <img src="https://www.evoca.am/images-cache/cards/1/17479817930565/415x261.jpg" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
+          <img src="https://www.evoca.am/images-cache/loans/1/17461652642369/415x261.png" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
         </div>
 
         <div class="loan-card-content">
-          <h2 class="loan-card-title">Evoca Travel Card</h2>
+          <h2 class="loan-card-title">Միկրովերանորոգման վարկ Բանկի ռեսուրսներով</h2>
           <p class="loan-card-desc">
             Ստացիր քեզ անհրաժեշտ ֆինանսավորումը՝ գրավադրելով անշարժ գույք կամ տրանսպորտային միջոց։
           </p>
@@ -554,11 +556,11 @@ document.querySelector('#app').innerHTML = `
     <section class="loans-list-section">
       <div class="loan-card">
         <div class="loan-card-visual yellow-bg">
-          <img src="https://www.evoca.am/images-cache/cards/1/17798007931247/415x261.png" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
+          <img src="https://www.evoca.am/images-cache/loans/1/17764888992084/415x261.png" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
         </div>
 
         <div class="loan-card-content">
-          <h2 class="loan-card-title">Evoca Visa Platinum</h2>
+          <h2 class="loan-card-title">Ֆիզիկական անձանց տրանսպորտային միջոցների լիզինգ</h2>
           <p class="loan-card-desc">
             Նոր նպատակներ, անսպասելի ծախսեր կամ վաղուց պլանավորված գնումներ. Evocabank-ի անգրավ սպառողական վարկը կօգնի կյանքի կոչել Ձեր ծրագրերը՝ առանց գույքի գրավադրման։
           </p>
@@ -592,11 +594,11 @@ document.querySelector('#app').innerHTML = `
     <section class="loans-list-section">
       <div class="loan-card">
         <div class="loan-card-visual yellow-bg">
-          <img src="https://www.evoca.am/images-cache/cards/1/17815131185095/415x261.png" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
+          <img src="https://www.evoca.am/images-cache/loans/1/16947885698869/415x261.png" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
         </div>
 
         <div class="loan-card-content">
-          <h2 class="loan-card-title">Wilco Visa Infinite</h2>
+          <h2 class="loan-card-title">Վճարային քարտով օվերդրաֆտ (վարկային քարտ)</h2>
           <p class="loan-card-desc">
             Նոր ավտոմեքենա գնելու որոշու՞մ եք կայացրել, արդեն ընտրե՞լ եք մակնիշը, մոդելը և գույնը: Evocabank-ը կօգնի ավարտին հասցնել Ձեր որոշումը։
           </p>
@@ -630,11 +632,11 @@ document.querySelector('#app').innerHTML = `
     <section class="loans-list-section">
       <div class="loan-card">
         <div class="loan-card-visual yellow-bg">
-          <img src="https://www.evoca.am/images-cache/cards/1/1772717001933/415x261.png" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
+          <img src="https://www.evoca.am/images-cache/loans/1/17364087555297/415x261.png" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
         </div>
 
         <div class="loan-card-content">
-          <h2 class="loan-card-title">Visa Infinite</h2>
+          <h2 class="loan-card-title">Անհատական վարկ «Ներդրումային»</h2>
           <p class="loan-card-desc">
             Ստացիր քեզ անհրաժեշտ ֆինանսավորումը՝ գրավադրելով անշարժ գույք կամ տրանսպորտային միջոց։
           </p>
@@ -666,11 +668,11 @@ document.querySelector('#app').innerHTML = `
     <section class="loans-list-section">
       <div class="loan-card">
         <div class="loan-card-visual yellow-bg">
-          <img src="https://www.evoca.am/images-cache/cards/1/17149865475676/415x261.png" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
+          <img src="https://www.evoca.am/images-cache/loans/1/17419413852954/415x261.jpg" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
         </div>
 
         <div class="loan-card-content">
-          <h2 class="loan-card-title">Visa Business</h2>
+          <h2 class="loan-card-title">Ավտոկայանատեղիի ձեռքբերման վարկ</h2>
           <p class="loan-card-desc">
             Նոր նպատակներ, անսպասելի ծախսեր կամ վաղուց պլանավորված գնումներ. Evocabank-ի անգրավ սպառողական վարկը կօգնի կյանքի կոչել Ձեր ծրագրերը՝ առանց գույքի գրավադրման։
           </p>
@@ -704,11 +706,11 @@ document.querySelector('#app').innerHTML = `
     <section class="loans-list-section">
       <div class="loan-card">
         <div class="loan-card-visual yellow-bg">
-          <img src="https://www.evoca.am/images-cache/cards/1/17249401821904/415x261.png" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
+          <img src="https://www.evoca.am/images-cache/loans/1/17701927362001/415x261.png" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
         </div>
 
         <div class="loan-card-content">
-          <h2 class="loan-card-title">UnionPay Business Platinum</h2>
+          <h2 class="loan-card-title">Հեծանիվի ձեռքբերման վարկ</h2>
           <p class="loan-card-desc">
             Նոր ավտոմեքենա գնելու որոշու՞մ եք կայացրել, արդեն ընտրե՞լ եք մակնիշը, մոդելը և գույնը: Evocabank-ը կօգնի ավարտին հասցնել Ձեր որոշումը։
           </p>
@@ -742,11 +744,47 @@ document.querySelector('#app').innerHTML = `
     <section class="loans-list-section">
       <div class="loan-card">
         <div class="loan-card-visual yellow-bg">
-          <img src="https://www.evoca.am/images-cache/cards/1/17767720288483/415x261.png" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
+          <img src="https://www.evoca.am/images-cache/loans/1/17262174043684/415x261.png" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
         </div>
 
         <div class="loan-card-content">
-          <h2 class="loan-card-title">Evoca Gift Card</h2>
+          <h2 class="loan-card-title">Ոչ ռեզիդենտ ֆիզ․ անձանց համար բնակարանային հիփոթեքային վարկ</h2>
+          <p class="loan-card-desc">
+            Ստացիր քեզ անհրաժեշտ ֆինանսավորումը՝ գրավադրելով անշարժ գույք կամ տրանսպորտային միջոց։
+          </p>
+
+          <div class="loan-stats">
+            <div class="stat-item">
+              <span class="stat-top">մինչև</span>
+              <span class="stat-value">10 մլն. ֏</span>
+              <span class="stat-bottom">Գումար</span>
+            </div>
+
+            <div class="stat-item">
+              <span class="stat-top">մինչև</span>
+              <span class="stat-value">60 ամիս</span>
+              <span class="stat-bottom">Ժամկետ</span>
+            </div>
+
+            <div class="stat-item">
+              <span class="stat-top">սկսած</span>
+              <span class="stat-value">19%-ից</span>
+              <span class="stat-bottom">Տոկոսադրույք</span>
+            </div>
+          </div>
+
+          <a href="#" class="loan-detail-btn">Մանրամասն </a>
+        </div>
+      </div>
+    </section>
+    <section class="loans-list-section">
+      <div class="loan-card">
+        <div class="loan-card-visual yellow-bg">
+          <img src="https://www.evoca.am/images-cache/loans/1/17198124761415/415x261.png" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
+        </div>
+
+        <div class="loan-card-content">
+          <h2 class="loan-card-title">Վերանորոգման վարկ EvocaHOME</h2>
           <p class="loan-card-desc">
             Նոր նպատակներ, անսպասելի ծախսեր կամ վաղուց պլանավորված գնումներ. Evocabank-ի անգրավ սպառողական վարկը կօգնի կյանքի կոչել Ձեր ծրագրերը՝ առանց գույքի գրավադրման։
           </p>
@@ -780,11 +818,11 @@ document.querySelector('#app').innerHTML = `
     <section class="loans-list-section">
       <div class="loan-card">
         <div class="loan-card-visual yellow-bg">
-          <img src="https://www.evoca.am/images-cache/cards/1/17404717113297/415x261.png" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
+          <img src="https://www.evoca.am/images-cache/loans/1/1782886301331/415x261.jpg" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
         </div>
 
         <div class="loan-card-content">
-          <h2 class="loan-card-title">MyLer Gift Card</h2>
+          <h2 class="loan-card-title">Դրամական միջոցների գրավով ապահովված անհատական վարկ</h2>
           <p class="loan-card-desc">
             Նոր ավտոմեքենա գնելու որոշու՞մ եք կայացրել, արդեն ընտրե՞լ եք մակնիշը, մոդելը և գույնը: Evocabank-ը կօգնի ավարտին հասցնել Ձեր որոշումը։
           </p>
@@ -818,7 +856,7 @@ document.querySelector('#app').innerHTML = `
     <section class="loans-list-section">
       <div class="loan-card">
         <div class="loan-card-visual yellow-bg">
-          <img src="https://www.evoca.am/images-cache/cards/1/17655348192361/415x261.png" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
+          <img src="https://www.evoca.am/images-cache/loans/1/16142450609707/415x261.jpg" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
         </div>
 
         <div class="loan-card-content">
@@ -851,7 +889,416 @@ document.querySelector('#app').innerHTML = `
         </div>
       </div>
     </section>
-    
+    <section class="loans-list-section">
+      <div class="loan-card">
+        <div class="loan-card-visual yellow-bg">
+          <img src="https://www.evoca.am/images-cache/loans/1/16142450957048/415x261.jpg" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
+        </div>
+
+        <div class="loan-card-content">
+          <h2 class="loan-card-title">ԱՀԸ-ի ծրագրով ձեռք բերման վարկեր</h2>
+          <p class="loan-card-desc">
+            Նոր նպատակներ, անսպասելի ծախսեր կամ վաղուց պլանավորված գնումներ. Evocabank-ի անգրավ սպառողական վարկը կօգնի կյանքի կոչել Ձեր ծրագրերը՝ առանց գույքի գրավադրման։
+          </p>
+
+          <div class="loan-stats">
+            <div class="stat-item">
+              <span class="stat-top">մինչև</span>
+              <span class="stat-value">10 մլն. ֏</span>
+              <span class="stat-bottom">Գումար</span>
+            </div>
+
+            <div class="stat-item">
+              <span class="stat-top">մինչև</span>
+              <span class="stat-value">60 ամիս</span>
+              <span class="stat-bottom">Ժամկետ</span>
+            </div>
+
+            <div class="stat-item">
+              <span class="stat-top">սկսած</span>
+              <span class="stat-value">19%-ից</span>
+              <span class="stat-bottom">Տոկոսադրույք</span>
+            </div>
+          </div>
+
+          <a href="#" class="loan-detail-btn">Մանրամասն </a>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="loans-list-section">
+      <div class="loan-card">
+        <div class="loan-card-visual yellow-bg">
+          <img src="https://www.evoca.am/images-cache/loans/1/17265524369781/415x261.png" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
+        </div>
+
+        <div class="loan-card-content">
+          <h2 class="loan-card-title">ԱՀԸ-ի ծրագրով կառուցապատման վարկեր</h2>
+          <p class="loan-card-desc">
+            Նոր ավտոմեքենա գնելու որոշու՞մ եք կայացրել, արդեն ընտրե՞լ եք մակնիշը, մոդելը և գույնը: Evocabank-ը կօգնի ավարտին հասցնել Ձեր որոշումը։
+          </p>
+
+          <div class="loan-stats">
+            <div class="stat-item">
+              <span class="stat-top">մինչև</span>
+              <span class="stat-value">10 մլն. ֏</span>
+              <span class="stat-bottom">Գումար</span>
+            </div>
+
+            <div class="stat-item">
+              <span class="stat-top">մինչև</span>
+              <span class="stat-value">60 ամիս</span>
+              <span class="stat-bottom">Ժամկետ</span>
+            </div>
+
+            <div class="stat-item">
+              <span class="stat-top">սկսած</span>
+              <span class="stat-value">19%-ից</span>
+              <span class="stat-bottom">Տոկոսադրույք</span>
+            </div>
+          </div>
+
+          <a href="#" class="loan-detail-btn">Մանրամասն </a>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="loans-list-section">
+      <div class="loan-card">
+        <div class="loan-card-visual yellow-bg">
+          <img src="https://www.evoca.am/images-cache/loans/1/16142533830767/415x261.jpg" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
+        </div>
+
+        <div class="loan-card-content">
+          <h2 class="loan-card-title">ԱՀԸ-ի ծրագրով վերանորոգման վարկեր</h2>
+          <p class="loan-card-desc">
+            Ստացիր քեզ անհրաժեշտ ֆինանսավորումը՝ գրավադրելով անշարժ գույք կամ տրանսպորտային միջոց։
+          </p>
+
+          <div class="loan-stats">
+            <div class="stat-item">
+              <span class="stat-top">մինչև</span>
+              <span class="stat-value">10 մլն. ֏</span>
+              <span class="stat-bottom">Գումար</span>
+            </div>
+
+            <div class="stat-item">
+              <span class="stat-top">մինչև</span>
+              <span class="stat-value">60 ամիս</span>
+              <span class="stat-bottom">Ժամկետ</span>
+            </div>
+
+            <div class="stat-item">
+              <span class="stat-top">սկսած</span>
+              <span class="stat-value">19%-ից</span>
+              <span class="stat-bottom">Տոկոսադրույք</span>
+            </div>
+          </div>
+
+          <a href="#" class="loan-detail-btn">Մանրամասն </a>
+        </div>
+      </div>
+    </section>
+    <section class="loans-list-section">
+      <div class="loan-card">
+        <div class="loan-card-visual yellow-bg">
+          <img src="https://www.evoca.am/images-cache/loans/1/16142451699164/415x261.jpg" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
+        </div>
+
+        <div class="loan-card-content">
+          <h2 class="loan-card-title">Հիփոթեքային վարկ «Երիտասարդ ընտանիքին՝ մատչելի բնակարան»</h2>
+          <p class="loan-card-desc">
+            Նոր նպատակներ, անսպասելի ծախսեր կամ վաղուց պլանավորված գնումներ. Evocabank-ի անգրավ սպառողական վարկը կօգնի կյանքի կոչել Ձեր ծրագրերը՝ առանց գույքի գրավադրման։
+          </p>
+
+          <div class="loan-stats">
+            <div class="stat-item">
+              <span class="stat-top">մինչև</span>
+              <span class="stat-value">10 մլն. ֏</span>
+              <span class="stat-bottom">Գումար</span>
+            </div>
+
+            <div class="stat-item">
+              <span class="stat-top">մինչև</span>
+              <span class="stat-value">60 ամիս</span>
+              <span class="stat-bottom">Ժամկետ</span>
+            </div>
+
+            <div class="stat-item">
+              <span class="stat-top">սկսած</span>
+              <span class="stat-value">19%-ից</span>
+              <span class="stat-bottom">Տոկոսադրույք</span>
+            </div>
+          </div>
+
+          <a href="#" class="loan-detail-btn">Մանրամասն </a>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="loans-list-section">
+      <div class="loan-card">
+        <div class="loan-card-visual yellow-bg">
+          <img src="https://www.evoca.am/images-cache/loans/1/16142652333164/415x261.jpg" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
+        </div>
+
+        <div class="loan-card-content">
+          <h2 class="loan-card-title">Visa Infinite վճարային քարտերով տրամադրվող վարկային սահմանաչափ</h2>
+          <p class="loan-card-desc">
+            Նոր ավտոմեքենա գնելու որոշու՞մ եք կայացրել, արդեն ընտրե՞լ եք մակնիշը, մոդելը և գույնը: Evocabank-ը կօգնի ավարտին հասցնել Ձեր որոշումը։
+          </p>
+
+          <div class="loan-stats">
+            <div class="stat-item">
+              <span class="stat-top">մինչև</span>
+              <span class="stat-value">10 մլն. ֏</span>
+              <span class="stat-bottom">Գումար</span>
+            </div>
+
+            <div class="stat-item">
+              <span class="stat-top">մինչև</span>
+              <span class="stat-value">60 ամիս</span>
+              <span class="stat-bottom">Ժամկետ</span>
+            </div>
+
+            <div class="stat-item">
+              <span class="stat-top">սկսած</span>
+              <span class="stat-value">19%-ից</span>
+              <span class="stat-bottom">Տոկոսադրույք</span>
+            </div>
+          </div>
+
+          <a href="#" class="loan-detail-btn">Մանրամասն </a>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="loans-list-section">
+      <div class="loan-card">
+        <div class="loan-card-visual yellow-bg">
+          <img src="https://www.evoca.am/images-cache/loans/1/16690386016508/415x261.png" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
+        </div>
+
+        <div class="loan-card-content">
+          <h2 class="loan-card-title">Անգրավ սպառողական վարկ</h2>
+          <p class="loan-card-desc">
+            Ստացիր քեզ անհրաժեշտ ֆինանսավորումը՝ գրավադրելով անշարժ գույք կամ տրանսպորտային միջոց։
+          </p>
+
+          <div class="loan-stats">
+            <div class="stat-item">
+              <span class="stat-top">մինչև</span>
+              <span class="stat-value">10 մլն. ֏</span>
+              <span class="stat-bottom">Գումար</span>
+            </div>
+
+            <div class="stat-item">
+              <span class="stat-top">մինչև</span>
+              <span class="stat-value">60 ամիս</span>
+              <span class="stat-bottom">Ժամկետ</span>
+            </div>
+
+            <div class="stat-item">
+              <span class="stat-top">սկսած</span>
+              <span class="stat-value">19%-ից</span>
+              <span class="stat-bottom">Տոկոսադրույք</span>
+            </div>
+          </div>
+
+          <a href="#" class="loan-detail-btn">Մանրամասն </a>
+        </div>
+      </div>
+    </section>
+    <section class="loans-list-section">
+      <div class="loan-card">
+        <div class="loan-card-visual yellow-bg">
+          <img src="https://www.evoca.am/images-cache/loans/1/17133596531389/415x261.png" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
+        </div>
+
+        <div class="loan-card-content">
+          <h2 class="loan-card-title">Վերանորոգման հիփոթեքային վարկ Արցախից տեղահանված ընտանիքներին</h2>
+          <p class="loan-card-desc">
+            Նոր նպատակներ, անսպասելի ծախսեր կամ վաղուց պլանավորված գնումներ. Evocabank-ի անգրավ սպառողական վարկը կօգնի կյանքի կոչել Ձեր ծրագրերը՝ առանց գույքի գրավադրման։
+          </p>
+
+          <div class="loan-stats">
+            <div class="stat-item">
+              <span class="stat-top">մինչև</span>
+              <span class="stat-value">10 մլն. ֏</span>
+              <span class="stat-bottom">Գումար</span>
+            </div>
+
+            <div class="stat-item">
+              <span class="stat-top">մինչև</span>
+              <span class="stat-value">60 ամիս</span>
+              <span class="stat-bottom">Ժամկետ</span>
+            </div>
+
+            <div class="stat-item">
+              <span class="stat-top">սկսած</span>
+              <span class="stat-value">19%-ից</span>
+              <span class="stat-bottom">Տոկոսադրույք</span>
+            </div>
+          </div>
+
+          <a href="#" class="loan-detail-btn">Մանրամասն </a>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="loans-list-section">
+      <div class="loan-card">
+        <div class="loan-card-visual yellow-bg">
+          <img src="https://www.evoca.am/images-cache/loans/1/16142452651138/415x261.jpg" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
+        </div>
+
+        <div class="loan-card-content">
+          <h2 class="loan-card-title">«ՈՒՍԱՆՈՂԱԿԱՆ» սպառողական վարկ</h2>
+          <p class="loan-card-desc">
+            Նոր ավտոմեքենա գնելու որոշու՞մ եք կայացրել, արդեն ընտրե՞լ եք մակնիշը, մոդելը և գույնը: Evocabank-ը կօգնի ավարտին հասցնել Ձեր որոշումը։
+          </p>
+
+          <div class="loan-stats">
+            <div class="stat-item">
+              <span class="stat-top">մինչև</span>
+              <span class="stat-value">10 մլն. ֏</span>
+              <span class="stat-bottom">Գումար</span>
+            </div>
+
+            <div class="stat-item">
+              <span class="stat-top">մինչև</span>
+              <span class="stat-value">60 ամիս</span>
+              <span class="stat-bottom">Ժամկետ</span>
+            </div>
+
+            <div class="stat-item">
+              <span class="stat-top">սկսած</span>
+              <span class="stat-value">19%-ից</span>
+              <span class="stat-bottom">Տոկոսադրույք</span>
+            </div>
+          </div>
+
+          <a href="#" class="loan-detail-btn">Մանրամասն </a>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="loans-list-section">
+      <div class="loan-card">
+        <div class="loan-card-visual yellow-bg">
+          <img src="https://www.evoca.am/images-cache/loans/1/16696265771993/415x261.png" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
+        </div>
+
+        <div class="loan-card-content">
+          <h2 class="loan-card-title">Հիփոթեքային վարկեր ՀՀ սահմանամերձ և առանձին բնակավայրերում ընտանիքների բնակարանային մատչելիության ապահովման պետական աջակցության ծրագիր</h2>
+          <p class="loan-card-desc">
+            Ստացիր քեզ անհրաժեշտ ֆինանսավորումը՝ գրավադրելով անշարժ գույք կամ տրանսպորտային միջոց։
+          </p>
+
+          <div class="loan-stats">
+            <div class="stat-item">
+              <span class="stat-top">մինչև</span>
+              <span class="stat-value">10 մլն. ֏</span>
+              <span class="stat-bottom">Գումար</span>
+            </div>
+
+            <div class="stat-item">
+              <span class="stat-top">մինչև</span>
+              <span class="stat-value">60 ամիս</span>
+              <span class="stat-bottom">Ժամկետ</span>
+            </div>
+
+            <div class="stat-item">
+              <span class="stat-top">սկսած</span>
+              <span class="stat-value">19%-ից</span>
+              <span class="stat-bottom">Տոկոսադրույք</span>
+            </div>
+          </div>
+
+          <a href="#" class="loan-detail-btn">Մանրամասն </a>
+        </div>
+      </div>
+    </section>
+    <section class="loans-list-section">
+      <div class="loan-card">
+        <div class="loan-card-visual yellow-bg">
+          <img src="https://www.evoca.am/images-cache/loans/1/16644424027338/415x261.png" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
+        </div>
+
+        <div class="loan-card-content">
+          <h2 class="loan-card-title">Evolution</h2>
+          <p class="loan-card-desc">
+            Նոր նպատակներ, անսպասելի ծախսեր կամ վաղուց պլանավորված գնումներ. Evocabank-ի անգրավ սպառողական վարկը կօգնի կյանքի կոչել Ձեր ծրագրերը՝ առանց գույքի գրավադրման։
+          </p>
+
+          <div class="loan-stats">
+            <div class="stat-item">
+              <span class="stat-top">մինչև</span>
+              <span class="stat-value">10 մլն. ֏</span>
+              <span class="stat-bottom">Գումար</span>
+            </div>
+
+            <div class="stat-item">
+              <span class="stat-top">մինչև</span>
+              <span class="stat-value">60 ամիս</span>
+              <span class="stat-bottom">Ժամկետ</span>
+            </div>
+
+            <div class="stat-item">
+              <span class="stat-top">սկսած</span>
+              <span class="stat-value">19%-ից</span>
+              <span class="stat-bottom">Տոկոսադրույք</span>
+            </div>
+          </div>
+
+          <a href="#" class="loan-detail-btn">Մանրամասն </a>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="loans-list-section">
+      <div class="loan-card">
+        <div class="loan-card-visual yellow-bg">
+          <img src="https://www.evoca.am/images-cache/loans/1/17129179540435/415x261.png" alt="Անգրավ սպառողական վարկ" class="loan-card-img">
+        </div>
+
+        <div class="loan-card-content">
+          <h2 class="loan-card-title">Հիփոթեքային վարկեր Զինծառայողներին</h2>
+          <p class="loan-card-desc">
+            Նոր ավտոմեքենա գնելու որոշու՞մ եք կայացրել, արդեն ընտրե՞լ եք մակնիշը, մոդելը և գույնը: Evocabank-ը կօգնի ավարտին հասցնել Ձեր որոշումը։
+          </p>
+
+          <div class="loan-stats">
+            <div class="stat-item">
+              <span class="stat-top">մինչև</span>
+              <span class="stat-value">10 մլն. ֏</span>
+              <span class="stat-bottom">Գումար</span>
+            </div>
+
+            <div class="stat-item">
+              <span class="stat-top">մինչև</span>
+              <span class="stat-value">60 ամիս</span>
+              <span class="stat-bottom">Ժամկետ</span>
+            </div>
+
+            <div class="stat-item">
+              <span class="stat-top">սկսած</span>
+              <span class="stat-value">19%-ից</span>
+              <span class="stat-bottom">Տոկոսադրույք</span>
+            </div>
+          </div>
+
+          <a href="#" class="loan-detail-btn">Մանրամասն </a>
+        </div>
+      </div>
+    </section>
 
 <footer class="main-footer">
   <div class="footer-top-container">
@@ -937,5 +1384,5 @@ document.querySelector('#app').innerHTML = `
       <img src="https://www.evoca.am/img/temp/partners/partner-5-new.png" alt="ArCa">
     </div>
   </div>
-</footer>
-`
+</footer>`;
+}

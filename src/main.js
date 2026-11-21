@@ -1,6 +1,12 @@
 import './style.css'
+import './qarter.css'
+import './varker.css'
+import { showQarter } from './qarter.js'
+import { showVarker } from './varker.js'
 
-document.querySelector('#app').innerHTML = `
+// 1. Գլխավոր էջը տպելու ֆունկցիան (#app-ի մեջ)
+export function showHome() {
+  document.querySelector('#app').innerHTML = `
     <div class="main">
     <header class="top-header">
       <div class="left-menu">
@@ -48,9 +54,11 @@ document.querySelector('#app').innerHTML = `
     </header>
 
     <div class="down-header">
-      <img class="logo-for-evoca" src="https://newmag.am/public/front/assets//images/pages/fest_summer/evoca.png" alt="Evocabank Logo">
-      <a href="./varker.html">Վարկեր</a>  
-      <a href="./qarter.html">Քարտեր</a>  
+      <img onclick="openHome()" class="logo-for-evoca" src="https://newmag.am/public/front/assets//images/pages/fest_summer/evoca.png" alt="Evocabank Logo">
+<a onclick="openVarker()" href="javascript:void(0)">Վարկեր</a>
+  <a onclick="openQarter()" href="javascript:void(0)">Քարտեր</a>
+
+ 
       <a href="#">Ավանդներ</a>
       <a href="#">Հաշիվներ</a>
       <a href="#">Փոխանցումներ</a>
@@ -568,6 +576,15 @@ document.querySelector('#app').innerHTML = `
 
   </div>
 `
+}
+
+window.openHome = showHome;
+window.openVarker = showVarker;
+window.openQarter = showQarter;
+
+showHome();
+
+
 
 
 
@@ -749,3 +766,5 @@ const calcGroups = document.querySelectorAll(".calc-item-group");
       }
     });
   }
+
+  
