@@ -6,6 +6,8 @@ import { showVarker } from './varker.js'
 import { Footer } from './footer.js';
 import { Header } from './header.js';
 import { avandnerQarter } from './avandner.js'
+import { initAnimations } from './animation.js';
+
 
 window.openHome = showHome;
 window.openVarker = showVarker;
@@ -436,6 +438,7 @@ export function showHome() {
    ${Footer()}
   </div>
 `
+initAnimations();
 }
 
 window.openHome = showHome;

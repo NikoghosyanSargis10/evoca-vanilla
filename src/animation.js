@@ -1,12 +1,14 @@
-import "./style.css";
+let bioInterval = null;
 
-document.addEventListener("DOMContentLoaded", () => {
+export function initAnimations() {
+  // 1. Գլխավոր սլայդեր (Hero Slider)
   const heroTitle = document.querySelector(".hero-title");
   const heroText = document.querySelector(".hero-text");
-  const heroImg = document.querySelector(".hero-img"); 
-  const prevBtn = document.querySelector(".hero-arrow-prev");
-  const nextBtn = document.querySelector(".hero-arrow-next");
-  const heroDots = document.querySelectorAll(".hero-section .slider-dots .dot"); 
+  const heroImg = document.querySelector(".hero-img");
+  const arrows = document.querySelectorAll(".hero-section .hero-arrow");
+  const prevBtn = arrows[0];
+  const nextBtn = arrows[1];
+  const heroDots = document.querySelectorAll(".hero-section .slider-dots .dot");
 
   const mainSlides = [
     {
@@ -61,27 +63,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
   showMainSlide(currentMainSlide);
 
-    const bioImages = [
-    "https://www.evoca.am/img/temp/biometric/face1.png", // Աղջիկ
-    "https://www.evoca.am/img/temp/biometric/face3.png",  // Տղա
-    "https://www.evoca.am/img/temp/biometric/face2.png", // Աղջիկ
+  // 2. Բիոմետրիկ դեմքերի փոփոխություն (առանց կախելու)
+  if (bioInterval) clearInterval(bioInterval);
+
+  const bioImages = [
+    "https://www.evoca.am/img/temp/biometric/face1.png",
+    "https://www.evoca.am/img/temp/biometric/face3.png",
+    "https://www.evoca.am/img/temp/biometric/face2.png",
   ];
   let bioIdx = 0;
   const faceEl = document.getElementById("biometric-face");
   const meshEl = document.getElementById("biometric-mesh");
 
   if (faceEl) {
-    setInterval(() => {
+    bioInterval = setInterval(() => {
       if (meshEl) meshEl.style.opacity = "1";
-      
       setTimeout(() => {
         faceEl.style.opacity = "0";
-        
         setTimeout(() => {
           bioIdx = (bioIdx + 1) % bioImages.length;
           faceEl.src = bioImages[bioIdx];
           faceEl.style.opacity = "1";
-          
           setTimeout(() => {
             if (meshEl) meshEl.style.opacity = "0";
           }, 300);
@@ -89,10 +91,9 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 1000);
     }, 2500);
   }
-});
 
-const cardWrapper = document.querySelector(".active-card-wrapper");
-
+  // 3. 3D Քարտի անիմացիա
+  const cardWrapper = document.querySelector(".active-card-wrapper");
   if (cardWrapper) {
     cardWrapper.parentElement.style.perspective = "1000px";
     cardWrapper.style.transition = "transform 0.1s ease, filter 0.3s ease";
@@ -100,14 +101,11 @@ const cardWrapper = document.querySelector(".active-card-wrapper");
 
     cardWrapper.addEventListener("mousemove", (e) => {
       const rect = cardWrapper.getBoundingClientRect();
-      
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
-      
       const xc = rect.width / 2;
       const yc = rect.height / 2;
-      
-      const rotateX = (yc - y) / 10; 
+      const rotateX = (yc - y) / 10;
       const rotateY = (x - xc) / 10;
 
       cardWrapper.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
@@ -121,9 +119,10 @@ const cardWrapper = document.querySelector(".active-card-wrapper");
     cardWrapper.addEventListener("mouseenter", () => {
       cardWrapper.style.transition = "transform 0.1s ease";
     });
-  };
+  }
 
-const calcGroups = document.querySelectorAll(".calc-item-group");
+  // 4. Հաշվիչ (Calculator)
+  const calcGroups = document.querySelectorAll(".calc-item-group");
   const tabLinks = document.querySelectorAll(".calc-tab-link");
   const calcBtn = document.querySelector(".calc-execute-btn");
 
@@ -148,16 +147,15 @@ const calcGroups = document.querySelectorAll(".calc-item-group");
 
   tabLinks.forEach((tab) => {
     tab.addEventListener("click", () => {
-      tabLinks.forEach((t) => tab.classList.remove("active"));
+      tabLinks.forEach((t) => t.classList.remove("active"));
       tab.classList.add("active");
-      
+
       const labelAmount = document.querySelectorAll(".calc-item-label")[0];
       if (labelAmount) {
         labelAmount.textContent = tab.textContent === "Վարկ" ? "Վարկի գումար" : "Ներդրվող գումար";
       }
     });
   });
-
 
   if (calcBtn) {
     calcBtn.addEventListener("click", () => {
@@ -171,10 +169,10 @@ const calcGroups = document.querySelectorAll(".calc-item-group");
       if (amount > 0 && months > 0 && interest > 0) {
         const monthlyRate = (interest / 100) / 12;
         const monthlyPayment = (amount * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -months));
-        
         alert(`Ամսական վճարի մոտավոր չափը՝ ${Math.round(monthlyPayment).toLocaleString()} ֏`);
       } else {
         alert("Խնդրում ենք մուտքագրել ճիշտ տվյալներ:");
       }
     });
   }
+}
