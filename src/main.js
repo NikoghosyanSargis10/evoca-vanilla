@@ -7,6 +7,9 @@ import { Footer } from './footer.js';
 import { Header } from './header.js';
 import { avandnerQarter } from './avandner.js'
 import { initAnimations } from './animation.js';
+import { ecoCardsHTML } from './EvocaCard.js';
+import { evocaBestCards } from './data.js';
+import { newsCardsHTML } from './NewsCards.js';
 
 
 window.openHome = showHome;
@@ -14,8 +17,13 @@ window.openVarker = showVarker;
 window.openQarter = showQarter;
 window.openAvandner = avandnerQarter;
 
-// 1. Գլխավոր էջը տպելու ֆունկցիան (#app-ի մեջ)
 export function showHome() {
+  const thumbCardsHTML = evocaBestCards.map(card => `
+    <div class="thumb-card">
+      <img src="${card.img}" alt="${card.alt}">
+    </div>
+  `).join('');
+
   document.querySelector('#app').innerHTML = `
      ${Header()}
     <section class="hero-section">
@@ -76,31 +84,9 @@ export function showHome() {
     <div class="best-eco-content">
       <h1 class="best-eco-title">Լավագույնը Evocabank-ից</h1>
       
-      <div class="cards-grid">
-        <div class="eco-card">
-          <span class="card-badge bg-purple">Թվային քարտեր</span>
-          <h3 class="card-title">Evoca Digital քարտ</h3>
-          <p class="card-desc">Evoca Digital քարտն արդեն հասանելի է EvocaTOUCH հավելվածում։ Ակտիվացրու այն հիմա և ընտրիր քո սիրելի դիզայնը։</p>
-        </div>
-        
-        <div class="eco-card">
-          <span class="card-badge bg-purple">Նվեր քարտեր</span>
-          <h3 class="card-title">Evoca Gift Card</h3>
-          <p class="card-desc">Գնիր Evoca Gift Card, և լավագույն նվերը կլինի քոնը։ Քարտը հարմար է բոլոր առիթների համար։</p>
-        </div>
-        
-        <div class="eco-card">
-          <span class="card-badge bg-purple">Նոր հավելված</span>
-          <h3 class="card-title">EvocaTOUCH 2</h3>
-          <p class="card-desc">EvocaTOUCH-ը պարզապես բանկային հավելված չէ, վստահ ենք՝ այն քեզ համար դառնալու է ապրելակերպ։</p>
-        </div>
-        
-        <div class="eco-card">
-          <span class="card-badge bg-purple">Օնլայն վճարումներ</span>
-          <h3 class="card-title">Արագ online վճարումներ</h3>
-          <p class="card-desc">Կատարիր քո ընթացիկ վճարումները Evocabank-ի online տերմինալի միջոցով՝ պարզ և արագ։ Այն հասանելի է 24/7։</p>
-        </div>
-      </div>
+     <div class="cards-grid">
+  ${ecoCardsHTML}
+  </div>
 
     </div>
   </div>
@@ -109,16 +95,8 @@ export function showHome() {
   <div class="cards-slider-container">
     
     <div class="cards-thumbs-column">
-      <div class="thumb-card">
-        <img src="https://www.evoca.am/images-cache/cards/1/17639683196125/415x261.png" alt="Mastercard World Digital">
-      </div>
-      <div class="thumb-card">
-        <img src="https://www.evoca.am/images-cache/cards/1/17282986912132/415x261.png" alt="Digital Gift Card">
-      </div>
-      <div class="thumb-card">
-        <img src="https://www.evoca.am/images-cache/cards/1/17149865321136/415x261.png" alt="Mastercard Gold">
-      </div>
-    </div>
+  ${thumbCardsHTML}
+   </div>
 
     <div class="main-card-display">
       <div class="active-card-wrapper">
@@ -297,42 +275,9 @@ export function showHome() {
     </div>
 
     <div class="news-cards-grid">
-      
-      <div class="news-single-card">
-        <div class="news-image-wrapper">
-          <img src="https://www.evoca.am/images-cache/news/1/17942090889803/439x320.png" alt="Evoca Bonds">
-        </div>
-        <div class="news-card-body">
-          <span class="news-category tag-purple">Բանկային</span>
-          <h3 class="news-card-title">Evocabank-ը թողարկել է պարտատոմսեր՝ դրամով, դոլարով ու...</h3>
-          <span class="news-card-date">09.11.2026</span>
-        </div>
-      </div>
+  ${newsCardsHTML}
+</div>
 
-      <div class="news-single-card">
-        <div class="news-image-wrapper">
-          <img src="https://www.evoca.am/images-cache/news/1/17939507034916/439x320.png" alt="Toon Expo 2026">
-        </div>
-        <div class="news-card-body">
-          <span class="news-category tag-yellow">Կենսակերպ</span>
-          <h3 class="news-card-title">Evocabank-ը՝ TOON EXPO. INVEST 2026 Vol. 2-ին</h3>
-          <span class="news-card-date">06.11.2026</span>
-        </div>
-      </div>
-
-      <div class="news-single-card">
-        <div class="news-image-wrapper">
-          <img src="https://www.evoca.am/images-cache/news/1/17943953431384/439x320.png" alt="Evoca Conference 2026">
-        </div>
-        <div class="news-card-body">
-          <span class="news-category tag-green">Կենսակերպ</span>
-          <h3 class="news-card-title">Կայացավ Evoca Conference 2026-ը</h3>
-          <span class="news-card-date">06.11.2026</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
 </section>
 <section class="exchange-addresses-section">
   <div class="ex-addr-container">
