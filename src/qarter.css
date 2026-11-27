@@ -106,21 +106,14 @@
 }
 
 .loan-card-visual {
-  width: 990px;
-  height: 250px;
-  border-radius: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
-  overflow: hidden;
+  width: 415px !important;
+  height: 261px !important;
 }
 
 .loan-card-img {
-  width: 500px;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
 }
 
 .loan-card-content {
